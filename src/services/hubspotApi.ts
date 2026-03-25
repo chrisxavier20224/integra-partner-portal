@@ -136,6 +136,8 @@ export async function createDeal(
   companyName: string,
   urgency: UrgencyLevel,
   elevateRef: string,
+  siteCount?: number,
+  accountRef?: string,
 ): Promise<string> {
   if (!HUBSPOT_API_KEY) throw new HubSpotError('HubSpot API key not configured');
 
@@ -148,6 +150,15 @@ export async function createDeal(
   // Only set stage if we have the ID
   if (NEW_ENQUIRY_STAGE_ID) {
     properties.dealstage = NEW_ENQUIRY_STAGE_ID;
+  }
+
+  // Key properties — these are the ones worth having as deal-level fields
+  // Everything else goes in the structured note
+  if (siteCount !== undefined) {
+    properties.site_count = String(siteCount);
+  }
+  if (accountRef) {
+    properties.customer_account_reference = accountRef;
   }
 
   const res = await fetchWithRetry(`${BASE_URL}/crm/v3/objects/deals`, {
@@ -355,7 +366,7 @@ export async function submitOpportunity(
 
   // Step 2: Create ONE deal for the whole opportunity
   try {
-    result.dealId = await createDeal(companyName, urgency, elevateRef);
+    result.dealId = await createDeal(companyName, urgency, elevateRef, sites.length, accountRef);
   } catch (err) {
     result.errors.push(`Deal creation failed: ${err instanceof Error ? err.message : 'Unknown'}`);
     return result; // Can't continue without a deal
