@@ -144,13 +144,14 @@ export async function createDeal(
   const properties: Record<string, string> = {
     dealname: companyName,
     pipeline: ELEVATE_PIPELINE_ID,
+    dealstage: NEW_ENQUIRY_STAGE_ID,
     elevate_ref: elevateRef,
-  };
 
-  // Only set stage if we have the ID
-  if (NEW_ENQUIRY_STAGE_ID) {
-    properties.dealstage = NEW_ENQUIRY_STAGE_ID;
-  }
+    // Submission metadata — these need creating in HubSpot Settings
+    // (HubSpot silently ignores unknown properties — safe to set now)
+    submission_source: 'Elevate Partner Portal',
+    urgency: urgency,
+  };
 
   // Key properties — these are the ones worth having as deal-level fields
   // Everything else goes in the structured note
