@@ -80,7 +80,7 @@ const PRODUCTS: Product[] = [
   {
     id: 'integra-enterprise',
     name: 'Integra Enterprise',
-    description: 'Position against leased lines — faster to deploy, more resilient, and with a 99.5% SLA. Quad-SIM Bondix platform with dedicated account manager. For critical-infrastructure customers: finance, healthcare, logistics, data centres.',
+    description: 'Position against leased lines — faster to deploy, more resilient, and with a 99.5% SLA. Quad-SIM enterprise-grade bonding platform with dedicated account manager. For critical-infrastructure customers: finance, healthcare, logistics, data centres.',
     monthlyPrice: '£400',
     installPrice: '£3,300',
     icon: <Server size={20} />,
@@ -123,7 +123,7 @@ const PRODUCTS: Product[] = [
   {
     id: 'wifi-mesh',
     name: 'WiFi & Mesh Coverage',
-    description: 'Add this to any office or hospitality site where coverage matters. UniFi, Ruckus, or Mikrotik — managed and monitored. Pricing depends on site size.',
+    description: 'Add this to any office or hospitality site where coverage matters. Enterprise-grade access points — fully managed and monitored by Integra. Pricing depends on site size.',
     monthlyPrice: 'From £10',
     installPrice: 'From £400',
     icon: <Wifi size={20} />,
