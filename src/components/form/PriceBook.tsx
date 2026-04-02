@@ -99,8 +99,8 @@ const PRODUCTS: Product[] = [
     monthlyPrice: '£99',
     bondedMonthlyPrice: '£119',
     installPrice: '£1,100',
-    speedBadge: '100 / 70 Mbps load balanced',
-    bondedSpeedBadge: '100 / 70 Mbps bonded',
+    speedBadge: '100 / 70 Mbps',
+    bondedSpeedBadge: '100 / 70 Mbps',
     icon: <Shield size={20} />,
     category: 'core',
     hasBonded: true,
@@ -127,8 +127,8 @@ const PRODUCTS: Product[] = [
     monthlyPrice: '£135',
     bondedMonthlyPrice: '£165',
     installPrice: '£2,200',
-    speedBadge: '300 / 150 Mbps load balanced',
-    bondedSpeedBadge: '300 / 150 Mbps bonded',
+    speedBadge: '300 / 150 Mbps',
+    bondedSpeedBadge: '300 / 150 Mbps',
     icon: <Zap size={20} />,
     category: 'core',
     highlight: true,
@@ -157,8 +157,8 @@ const PRODUCTS: Product[] = [
     monthlyPrice: '£195',
     bondedMonthlyPrice: '£230',
     installPrice: '£2,800',
-    speedBadge: '400 / 200 Mbps load balanced',
-    bondedSpeedBadge: '400 / 200 Mbps bonded',
+    speedBadge: '400 / 200 Mbps',
+    bondedSpeedBadge: '400 / 200 Mbps',
     icon: <Radio size={20} />,
     category: 'core',
     hasBonded: true,
@@ -185,8 +185,8 @@ const PRODUCTS: Product[] = [
     monthlyPrice: '£400',
     bondedMonthlyPrice: '£440',
     installPrice: '£3,300',
-    speedBadge: '500 / 400 Mbps load balanced',
-    bondedSpeedBadge: '500 / 400 Mbps bonded',
+    speedBadge: '500 / 400 Mbps',
+    bondedSpeedBadge: '500 / 400 Mbps',
     icon: <Server size={20} />,
     category: 'core',
     hasBonded: true,
@@ -381,7 +381,7 @@ export const PriceBook: React.FC = () => {
 
       <div>
         <h2 className="text-xl font-bold text-integra-navy mb-1">Products & Pricing</h2>
-        <p className="text-sm text-gray-500">All prices are standard retail, +VAT — your Elevate pricing is bespoke per opportunity</p>
+        <p className="text-sm text-gray-500">SD-WAN solutions — load balanced or bonded. All prices standard retail, +VAT — your Elevate pricing is bespoke per opportunity</p>
       </div>
 
       {/* ── Architecture Toggle ── */}
@@ -529,9 +529,7 @@ export const PriceBook: React.FC = () => {
                       {product.category === 'addon' && (
                         <span className="badge bg-gray-100 text-gray-500 text-xs">Add-on</span>
                       )}
-                      {isBondedView && product.hasBonded && (
-                        <span className="badge bg-emerald-100 text-emerald-700 text-xs">Bonded</span>
-                      )}
+                      {/* Architecture badge removed — toggle handles this */}
                       {showBondedUnavailable && (
                         <span className="badge bg-gray-100 text-gray-500 text-xs">Load Balanced only</span>
                       )}
